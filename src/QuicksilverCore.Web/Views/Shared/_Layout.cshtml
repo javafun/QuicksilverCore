@@ -1,5 +1,7 @@
 ﻿@using EPiServer.Personalization.Commerce.Extensions
 @using QuicksilverCore.Web.Extensions
+@using QuicksilverCore.Web.Features.Meta.Components
+@using QuicksilverCore.Web.Features.Navigation.Components
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@(await Component.InvokeAsync("MetaTitle"))</title>
+    <title>@await Component.InvokeAsync(nameof(MetaTitle))</title>
     <link rel="stylesheet" href="~/style.css" asp-append-version="true" />
     @RenderSection("Meta", false)
     @Html.CanonicalLink()
@@ -25,6 +27,7 @@
     @Html.Translate("/Header/Cookie/CookieUse") <button type="button" class="btn btn-xs btn-primary jsCookiesBtn"
         href="#">@Html.Translate("/Header/Cookie/Ok")</button>
 
+        @await Component.InvokeAsync(nameof(Navigation))
     <div class="quicksilver site-wrapper">
         @RenderBody()
     </div>

@@ -2,6 +2,7 @@ using EPiServer.Commerce.Catalog.ContentTypes;
 using EPiServer.Commerce.Marketing;
 using EPiServer.Web.Mvc;
 using Mediachase.Commerce;
+using Mediachase.Commerce.Customers;
 using Microsoft.AspNetCore.Mvc;
 using QuicksilverCore.Web.Features.Market.Services;
 using QuicksilverCore.Web.Features.Start.Pages;
@@ -32,6 +33,7 @@ public class StartController : PageController<StartPage>
             Promotions = GetActivePromotions()
         };
 
+        var c = CustomerContext.Current;
         return View(viewModel);
     }
 

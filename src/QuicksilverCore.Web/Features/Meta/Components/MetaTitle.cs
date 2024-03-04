@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using QuicksilverCore.Web.Features.Start.Pages;
 
 
-namespace QuicksilverCore.Web.Features.Components;
+namespace QuicksilverCore.Web.Features.Meta.Components;
 public class MetaTitle : ViewComponent
 {
     private readonly IContentLoader _contentLoader;
@@ -54,7 +54,7 @@ public class MetaTitle : ViewComponent
         var startPage = content as StartPage;
         return startPage != null ?
             View<string>(startPage.Title ?? startPage.Name) :
-            View<string>(content.Name);        
+            View<string>(content.Name);
     }
 
     private string FormatTitle(string title)

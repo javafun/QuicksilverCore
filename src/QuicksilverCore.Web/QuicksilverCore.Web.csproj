@@ -46,4 +46,9 @@
     <None Include="wwwroot\scripts\jquery.validate.unobtrusive.min.js" />
     <None Include="wwwroot\scripts\mustache.min.js" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\AddressBook\ViewModels\" />
+    <Folder Include="Features\Checkout\Pages\Pages\" />
+  </ItemGroup>
 </Project>

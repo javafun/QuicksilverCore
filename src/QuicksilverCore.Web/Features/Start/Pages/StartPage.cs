@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using EPiServer.SpecializedProperties;
+using QuicksilverCore.Web.Features.Cart.Pages;
+using QuicksilverCore.Web.Features.Checkout.Pages;
 using QuicksilverCore.Web.Infrastructure;
 
 namespace QuicksilverCore.Web.Features.Start.Pages;
@@ -52,13 +54,13 @@ public class StartPage : PageData
         Order = 7)]
     public virtual XhtmlString MainBody { get; set; }
 
-    //[Display(
-    //    Name = "Checkout page",
-    //    Description = "",
-    //    GroupName = SiteTabs.SiteStructure,
-    //    Order = 1)]
-    //[AllowedTypes(typeof(CheckoutPage))]
-    //public virtual ContentReference CheckoutPage { get; set; }
+    [Display(
+        Name = "Checkout page",
+        Description = "",
+        GroupName = SiteTabs.SiteStructure,
+        Order = 1)]
+    [AllowedTypes(typeof(CheckoutPage))]
+    public virtual ContentReference CheckoutPage { get; set; }
 
     //[Display(
     //    Name = "Address book page",
@@ -68,13 +70,13 @@ public class StartPage : PageData
     //[AllowedTypes(typeof(AddressBookPage))]
     //public virtual ContentReference AddressBookPage { get; set; }
 
-    //[Display(
-    //    Name = "Wish list page",
-    //    Description = "",
-    //    GroupName = SiteTabs.SiteStructure,
-    //    Order = 4)]
-    //[AllowedTypes(typeof(WishListPage))]
-    //public virtual ContentReference WishListPage { get; set; }
+    [Display(
+        Name = "Wish list page",
+        Description = "",
+        GroupName = SiteTabs.SiteStructure,
+        Order = 4)]
+    [AllowedTypes(typeof(WishListPage))]
+    public virtual ContentReference WishListPage { get; set; }
 
     //[Display(
     //    Name = "Search page",

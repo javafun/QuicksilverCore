@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="EPiServer" />
+    <Using Include="EPiServer.Core" />
+    <Using Include="EPiServer.DataAbstraction" />
+    <Using Include="EPiServer.DataAnnotations" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPiServer.CMS" Version="12.27.1" />
+    <PackageReference Include="EPiServer.Commerce" Version="14.17.0" />
+    <PackageReference Include="EPiServer.Personalization.Commerce" Version="4.1.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.27" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Translations\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Scripts\js\AddressBook.js" />
+    <Content Include="Scripts\js\Cart.js" />
+    <Content Include="Scripts\js\Checkout.js" />
+    <Content Include="Scripts\js\Login.js" />
+    <Content Include="Scripts\js\Market.js" />
+    <Content Include="Scripts\js\Misc.js" />
+    <Content Include="Scripts\js\Navigation.js" />
+    <Content Include="Scripts\js\Product.js" />
+    <Content Include="Scripts\js\quicksilver.js" />
+    <Content Include="Scripts\js\Recommendations.js" />
+    <Content Include="Scripts\js\Registration.js" />
+    <Content Include="Scripts\js\Search.js" />
+    <Content Include="Scripts\js\Warehouse.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\scripts\bootstrap.js" />
+    <None Include="wwwroot\scripts\jquery-1.11.1.js" />
+    <None Include="wwwroot\scripts\jquery.validate.min.js" />
+    <None Include="wwwroot\scripts\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\scripts\mustache.min.js" />
+  </ItemGroup>
+</Project>

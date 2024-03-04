@@ -1,0 +1,48 @@
+﻿@using EPiServer.Personalization.Commerce.Extensions
+@using QuicksilverCore.Web.Extensions
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@(await Component.InvokeAsync("MetaTitle"))</title>
+    <link rel="stylesheet" href="~/style.css" asp-append-version="true" />
+    @RenderSection("Meta", false)
+    @Html.CanonicalLink()
+    @Html.AlternateLinks()
+    @Html.RequiredClientResources("Header")
+    @Html.LoadTrackingAPI()
+</head>
+
+<body>
+    @await Html.RenderEPiServerQuickNavigatorAsync()
+    @Html.FullRefreshPropertiesMetaData()
+    <div id="ModalDialog" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg"></div>
+    </div>
+    @Html.Translate("/Header/Cookie/CookieUse") <button type="button" class="btn btn-xs btn-primary jsCookiesBtn"
+        href="#">@Html.Translate("/Header/Cookie/Ok")</button>
+
+    <div class="quicksilver site-wrapper">
+        @RenderBody()
+    </div>
+    <script asp-append-version="true" src="~/scripts/jquery-1.11.1.js"></script>
+    <script asp-append-version="true" src="~/scripts/bootstrap.js"></script>
+    <script asp-append-version="true" src="~/scripts/jquery.validate.min.js"></script>
+    <script asp-append-version="true" src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script asp-append-version="true" src="~/scripts/mustache.min.js"></script>    
+    <script asp-append-version="true" src="~/scripts/main.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
+    @Html.RequiredClientResources("Footer")
+
+    @if (this.Context.ShouldRenderTrackingSection())
+    {
+        @Html.PartialAsync("_RecommendationsTemplates")
+        @RenderSection("Tracking", false)
+    }
+</body>
+
+</html>

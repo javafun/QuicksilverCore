@@ -33,7 +33,6 @@ public class StartController : PageController<StartPage>
             Promotions = GetActivePromotions()
         };
 
-        var c = CustomerContext.Current;
         return View(viewModel);
     }
 

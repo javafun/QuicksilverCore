@@ -1,10 +1,16 @@
 using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
+using EPiServer.Commerce.Routing;
 using EPiServer.Data;
+using EPiServer.Editor;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
+using EPiServer.Web;
 using EPiServer.Web.Routing;
+using Mediachase.Commerce;
 using Mediachase.Commerce.Anonymous;
+using QuicksilverCore.Web.Features.Market.Services;
+using QuicksilverCore.Web.Infrastructure.Facades;
 
 namespace QuicksilverCore.Web;
 
@@ -39,8 +45,7 @@ public class Startup
             .AddCmsAspNetIdentity<ApplicationUser>()
             .AddCommerce()
             .AddAdminUserRegistration()
-            .AddEmbeddedLocalization<Startup>();
-
+            .AddEmbeddedLocalization<Startup>();      
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

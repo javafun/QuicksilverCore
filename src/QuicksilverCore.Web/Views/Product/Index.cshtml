@@ -89,7 +89,7 @@
                         @Html.Hidden("code", Model.Variant.Code)
                         <button type="submit" role="button" class="btn btn-primary jsAddToCart" data-container="MiniCart"><span class="glyphicon glyphicon-shopping-cart"></span> @Html.Translate("/Product/Button/AddToCart")</button>
                     }
-                    if (User.Identity.IsAuthenticated && !(bool)ViewData["IsReadOnly"])
+                    if (User.Identity.IsAuthenticated && (ViewData["IsReadOnly"] != null && (bool)ViewData["IsReadOnly"] == false))
                     {
                         using (Html.BeginForm("AddToCart", "WishList", FormMethod.Post, new { @class = "form-inline jsAddToWishList", data_container = "WishListMiniCart" }))
                         {

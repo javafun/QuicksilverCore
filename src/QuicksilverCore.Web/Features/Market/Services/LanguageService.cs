@@ -33,39 +33,6 @@ public class LanguageService : IUpdateCurrentLanguage
             : CurrentMarket.DefaultLanguage;
     }
 
-    public void UpdateLanguage(string languageId)
-    {
-        var chosenLanguage = languageId;
-        var cookieLanguage = _cookieService.Get(LanguageCookie);
-
-        if (string.IsNullOrEmpty(chosenLanguage))
-        {
-            if (cookieLanguage != null)
-            {
-                chosenLanguage = cookieLanguage;
-            }
-            else
-            {
-                var currentMarket = _currentMarket.GetCurrentMarket();
-                if (currentMarket?.DefaultLanguage != null)
-                {
-                    chosenLanguage = currentMarket.DefaultLanguage.Name;
-                }
-            }
-        }
-
-        _defaultUpdateCurrentLanguage.UpdateLanguage(chosenLanguage);
-
-        if (cookieLanguage == null || cookieLanguage != chosenLanguage)
-        {
-            _cookieService.Set(LanguageCookie, chosenLanguage);
-        }
-    }
-
-    public void UpdateReplacementLanguage(IContent currentContent, string requestedLanguage)
-    {
-        _defaultUpdateCurrentLanguage.UpdateReplacementLanguage(currentContent, requestedLanguage);
-    }
 
     private bool TryGetLanguage(string language, out CultureInfo cultureInfo)
     {
